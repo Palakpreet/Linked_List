@@ -17,6 +17,15 @@ void insertathead(Node*&n,Node*&t,int k){
     t->next=n;
     
 }
+void insertattail(Node*n,int k){
+    Node*temp=n->next;
+    while(temp->next!=n){
+        temp=temp->next;
+    }
+    Node* ex=new Node(k);
+    ex->next=n;
+    temp->next=ex;
+}
 void printlist(Node*n){
     cout<<n->data<<" ";
     Node*temp=n->next;
@@ -29,7 +38,10 @@ int main(){
     Node *head=new Node(10);
     Node *tail=head;
     insertathead(head,tail,3);
-     insertathead(head,tail,7);
+    insertathead(head,tail,7);
+    insertattail(head,23);
     printlist(head);
     
 }
+//  Output in this case  
+//  7 3 10 23 
